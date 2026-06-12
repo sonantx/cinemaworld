@@ -1,6 +1,7 @@
 FROM php:8.2-apache
 
 # Instalar la extensión pgsql para PostgreSQL
+RUN apt-get update && apt-get install -y libpq-dev && rm -rf /var/lib/apt/lists/*
 RUN docker-php-ext-install pgsql pdo_pgsql
 
 # Habilitar mod_rewrite (por si se necesita en el futuro)
